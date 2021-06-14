@@ -1,0 +1,54 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2.2.2
+    - run: choco install curl --acceptlicense --confirm
+      shell: cmd
+    - name: Kamek Cache
+      uses: actions/cache@v2
+      id: kamek
+      with:
+        path: ${{ github.workspace }}/Kamek.rar
+        key: ${{ runner.os }}-kamek
+    - name: Download Kamek
+      if: steps.kamek.outputs.cache-hit != 'true'
+      run: curl -k -L https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar -o Kamek.rar
+    - name: Code Warrior Cache
+      uses: actions/cache@v2
+      id: warrior
+      with:
+        path: ${{ github.workspace }}/${{ CODEWARRIOR_PATH }}
+        key: ${{ runner.os }}-warrior
+    - name: Download Code Warrior
+      if: steps.warrior.outputs.cahce-hit != 'true'
+      run: ${{ CODEWARRIOR_CMD }}
+    - run: |
+        7z x *.rar
+        rm -f *.rar
+        mkdir output
+    - name: Build Syati
+      run: |
+        python -m build USA
+        rm -f *.d
+        python -m build PAL
+        rm -f *.d
+        python -m build JAP
+        rm -f *.d
+        mv *.bin output
+    - name: Upload Binaries
+      uses: actions/upload-artifact@v2.2.3
+      with:
+        name: Binaries
+        path: ${{ ${{ github.workspace }}/output
