@@ -52,7 +52,6 @@ jobs:
         
         
   Loaders:
-    needs: Bins
     
     runs-on: windows-latest
     
