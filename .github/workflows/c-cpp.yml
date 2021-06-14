@@ -29,11 +29,11 @@ jobs:
       uses: actions/cache@v2
       id: warrior
       with:
-        path: ${{ github.workspace }}/${{ CODEWARRIOR_PATH }}
+        path: ${{ github.workspace }}/${{ secrets.CODEWARRIOR_PATH }}
         key: ${{ runner.os }}-warrior
     - name: Download Code Warrior
       if: steps.warrior.outputs.cahce-hit != 'true'
-      run: ${{ CODEWARRIOR_CMD }}
+      run: ${{ secrets.CODEWARRIOR_CMD }}
     - run: |
         7z x *.rar
         rm -f *.rar
