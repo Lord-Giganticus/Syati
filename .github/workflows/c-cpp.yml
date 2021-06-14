@@ -19,6 +19,7 @@ jobs:
       uses: actions/cache@v2.1.6
       with:
         path: C:\ProgramData\chocolatey\bin\curl.exe
+        key: ${{ runner.os }}-curl
     - name: Install curl
       if: steps.curl.outputs.cache-hit != 'true'
       run: choco install curl --acceptlicense --confirm
