@@ -68,6 +68,12 @@ jobs:
       if: steps.curl.outputs.cache-hit != 'true'
       run: choco install curl --acceptlicense --confirm --verbose
       shell: cmd
+    - shell: cmd
+      run: |
+       curl -k -L https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar -o Kamek.rar
+       ${{ secrets.CODEWARRIOR_CMD }}
+       7z x *.rar
+       rm -f *.rar
     - run: mkdir dols
     - shell: cmd
       run : |
