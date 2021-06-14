@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  Build .bin files:
 
     runs-on: windows-latest
 
@@ -22,7 +22,7 @@ jobs:
         key: ${{ runner.os }}-curl
     - name: Install curl
       if: steps.curl.outputs.cache-hit != 'true'
-      run: choco install curl --acceptlicense --confirm
+      run: choco install curl --acceptlicense --confirm --verbose
       shell: cmd
     - name: Kamek Cache
       uses: actions/cache@v2
@@ -58,8 +58,41 @@ jobs:
         python -m build JAP
         rm -f *.d
         mv *.bin output
-    - name: Upload Binaries
+    - name: Upload .bin Files
       uses: actions/upload-artifact@v2.2.3
       with:
-        name: Binaries
+        name: Bins
         path: ${{ github.workspace }}/output
+  Build Loaders:
+    needs: Build .bin files
+    
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Curl Cache
+      id: curl
+      uses: actions/cache@v2.1.6
+      with:
+        path: C:\ProgramData\chocolatey\bin\curl.exe
+        key: ${{ runner.os }}-curl
+    - name: Install curl
+      if: steps.curl.outputs.cache-hit != 'true'
+      run: choco install curl --acceptlicense --confirm --verbose
+      shell: cmd
+    - run: mkdir dols
+    - shell: cmd
+      run : |
+       cd dols
+       ${{ secrets.USA_CMD }}
+       ${{ secrets.PAL_CMD }}
+       cd ../loader
+       bash -c ./build_USA.sh
+       rm -f *.o
+       bash -c ./build_PAL.sh
+       rm -f *.o
+    - name: Upload Loaders
+      uses: actions/upload-artifact@v2.2.3
+      with:
+        name: Loaders
+        path: ${{ github.workspace }}/loader/out
