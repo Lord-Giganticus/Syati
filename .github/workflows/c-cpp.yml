@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Build .bin files:
+  Bins:
 
     runs-on: windows-latest
 
@@ -63,8 +63,8 @@ jobs:
       with:
         name: Bins
         path: ${{ github.workspace }}/output
-  Build Loaders:
-    needs: Build .bin files
+  Loaders:
+    needs: Bins
     
     runs-on: windows-latest
     
