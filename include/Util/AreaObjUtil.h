@@ -1,6 +1,7 @@
 #pragma once
 
-#include "JGeometry/TVec3f.h"
+#include "syati.h"
+#include "JGeometry/TVec3.h"
 
 class AreaObj;
 class AreaObjMgr;
