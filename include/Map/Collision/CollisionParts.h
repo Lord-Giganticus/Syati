@@ -1,7 +1,6 @@
 #pragma once
 
-#include "JGeometry/TPosition3.h"
-#include "JGeometry/TVec3.h"
+#include "JSystem.h"
 
 class HitSensor;
 class Triangle;
@@ -59,4 +58,10 @@ public:
 	f32 _E8; // TVec3f?
 	f32 _EC;
 	f32 _F0;
+};
+
+class CollisionPartsFilterBase
+{
+public:
+	virtual bool isInvalidParts(const CollisionParts *) const = 0;
 };

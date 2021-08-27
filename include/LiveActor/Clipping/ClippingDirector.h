@@ -1,17 +1,17 @@
 #pragma once
 
-#include "syati.h"
 #include "LiveActor/Clipping/ClippingActorHolder.h"
 #include "LiveActor/Clipping/ClippingGroupHolder.h"
 #include "LiveActor/Clipping/ClippingJudge.h"
-#include "LiveActor/LOD/LodCtrl.h"
-#include "NameObj/NameObj.h"
+
+class LodCtrl;
 
 class ClippingDirector : public NameObj
 {
 public:
     ClippingDirector();
 
+    virtual ~ClippingDirector();
     virtual void movement();
 
     void endInitActorSystemInfo();
@@ -23,4 +23,11 @@ public:
     ClippingJudge* mJudge; // _C
     ClippingActorHolder* mActorHolder; // _10
     ClippingGroupHolder* mGroupHolder; // _14
+};
+
+namespace MR
+{
+    ClippingDirector* getClippingDirector();
+    void addToClippingTarget(LiveActor *);
+    void removeFromClippingTarget(LiveActor *);
 };

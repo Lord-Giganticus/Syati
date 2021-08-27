@@ -1,7 +1,7 @@
 #pragma once
 
 #include "LiveActor/LiveActor.h"
-#include "LiveActor/LOD/LodCtrl.h"
+#include "LiveActor/Control/LodCtrl.h"
 #include "MapObj/MapObjActorInitInfo.h"
 
 class MapObjActor : public LiveActor
@@ -84,4 +84,11 @@ namespace MapObjActorUtil
 	bool isBreakStopped(const MapObjActor *);
 	void killBloomModel(const MapObjActor *);
 	void appearBloomModel(const MapObjActor *);
+};
+
+namespace NrvMapObjActor
+{
+	NERVE(HostTypeWait);
+	NERVE(HostTypeMove);
+	NERVE(HostTypeDone);
 };

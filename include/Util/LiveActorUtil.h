@@ -1,13 +1,10 @@
 #pragma once
 
 #include "Map/Collision/CollisionScaleType.h"
-#include "JGeometry/TMatrix34.h"
-#include "JGeometry/TPosition3.h"
-#include "JGeometry/TQuat4.h"
-#include "JGeometry/TVec3.h"
-#include "JMap/JMapInfoIter.h"
+#include "JSystem.h"
 
 class ActorLightCtrl;
+class BreakModel;
 class CollisionParts;
 class CollisionPartsFilterBase;
 class LiveActor;
@@ -18,6 +15,7 @@ class ModelObj;
 class Nerve;
 class HitSensor;
 class PartsModel;
+class RailObj;
 class TriangleFilterBase;
 
 namespace MR
@@ -242,6 +240,13 @@ namespace MR
     ModelObj* createModelObjNPC(const char *, const char *, MtxPtr);
     ModelObj* createModelObjBloomModel(const char *, const char *, MtxPtr);
 
+    BreakModel* createBreakModel(LiveActor *, MtxPtr);
+    ModelObj* createBloomModel(LiveActor *, MtxPtr);
+    ModelObj* createWaterModel(LiveActor *, MtxPtr);
+    ModelObj* createIceModel(LiveActor *, MtxPtr);
+    ModelObj* createIndirectPlanetModel(LiveActor *, MtxPtr);
+    ModelObj* createIndirectModel(LiveActor *, MtxPtr);
+
     PartsModel* createPartsModelMapObj(LiveActor *, const char *, const char *, MtxPtr);
     PartsModel* createPartsModelMapObjStrongLight(LiveActor *, const char *, const char *, MtxPtr);
     PartsModel* createPartsModelNoSilhouettedMapObj(LiveActor *, const char *, const char *, MtxPtr);
@@ -250,7 +255,9 @@ namespace MR
     PartsModel* createPartsModelIndirectNpc(LiveActor *, const char *, const char *, MtxPtr);
     PartsModel* createPartsModelEnemyAndFix(LiveActor *, const char *, const char *, MtxPtr);
     PartsModel* createPartsModelNpcAndFix(LiveActor *, const char *, const char *, MtxPtr);
-
+    RailObj* createRailObj(const char *, LiveActor *, const JMapInfoIter &);
+    const char* createLowModelObjName(const LiveActor *);
+    const char* createMiddelModelObjName(const LiveActor *);
     LodCtrl* createLodCtrlNPC(LiveActor *, const JMapInfoIter &);
     LodCtrl* createLodCtrlPlanet(LiveActor *, const JMapInfoIter &, f32, s32);
     MirrorActor* tryCreateMirrorActor(LiveActor *, const char *);
