@@ -46,7 +46,7 @@ jobs:
         rm -f *.d
         python -m build KOR
         rm -f *.d
-        pyhon -m build TWN
+        python -m build TWN
         mv *.bin output
     - name: Upload .bin Files
       uses: actions/upload-artifact@v2.2.3
