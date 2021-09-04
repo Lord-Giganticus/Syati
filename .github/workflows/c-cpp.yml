@@ -67,13 +67,15 @@ jobs:
        ${{ secrets.USA_CMD }}
        ${{ secrets.PAL_CMD }}
        ${{ secrets.JAP_CMD }}
-       cd ../loader
-       bash -c ./build_USA.sh
-       rm -f *.o
-       bash -c ./build_PAL.sh
-       rm -f *.o
-       bash -c ./build_JAP.sh
-       rm -f *.o
+    - shell: cmd
+      run: |
+        cd loader
+        bash -c ./build_USA.sh
+        rm -f *.o
+        bash -c ./build_PAL.sh
+        rm -f *.o
+        bash -c ./build_JAP.sh
+        rm -f *.o
     - name: Upload Loaders
       uses: actions/upload-artifact@v2.2.3
       with:
