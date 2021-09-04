@@ -56,8 +56,10 @@ jobs:
       run: |
        Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar" -OutFile Kamek.rar
        ${{ secrets.CODEWARRIOR_CMD }}
-       7z x *.rar
-       rm -f *.rar
+    - shell: cmd
+      run: |
+        7z x *.rar
+        rm -f *.rar
     - run: mkdir dols
     - shell: pwsh
       run : |
