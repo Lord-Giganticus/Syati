@@ -16,11 +16,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2.2.2
     - name: Download Kamek
-      run: Poweshell Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar" -OutFile Kamek.rar
-      shell: cmd
+      run: Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar" -OutFile Kamek.rar
+      shell: pwsh
     - name: Download Code Warrior
       run: ${{ secrets.CODEWARRIOR_CMD }}
-      shell: cmd
+      shell: pwsh
     - shell: cmd
       run: |
         7z x *.rar
@@ -52,14 +52,14 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - shell: cmd
+    - shell: pwsh
       run: |
-       Poweshell Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar" -OutFile Kamek.rar
+       Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/643925511906656257/829420068310876180/Kamek.rar" -OutFile Kamek.rar
        ${{ secrets.CODEWARRIOR_CMD }}
        7z x *.rar
        rm -f *.rar
     - run: mkdir dols
-    - shell: cmd
+    - shell: pwsh
       run : |
        cd dols
        ${{ secrets.USA_CMD }}
