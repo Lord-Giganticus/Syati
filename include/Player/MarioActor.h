@@ -412,4 +412,5 @@ public:
 	u32* _108C;
 	s32 _1090;
 	s32 _1094;
+	TVec3f* getGravityVec();
 };
