@@ -123,4 +123,5 @@ namespace MR
 	void requestEndGameOverDemo();
 	void requestEndMissDemo();
 	void executeOnWelcomeAndRetry();
+	wchar_t* addPictureFontCode(wchar_t *, int);
 };
