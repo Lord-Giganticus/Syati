@@ -78,4 +78,5 @@ namespace MR
 	void setCurrentPlacementZoneId(s32);
 	void clearCurrentPlacementZoneId();
 	s32 getCurrentPlacementZoneId();
+	void goToGalaxyNoSelection(const char*, s32, s32, s32); //This symbol is undocumented, so it's name is custom.
 };
