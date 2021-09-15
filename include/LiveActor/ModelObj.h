@@ -12,4 +12,6 @@ public:
     virtual void calcAndSetBaseMtx();
 
     MtxPtr mMtx; // _90
+    
+    ModelObj* setupColor(const NameObj *, s32); // custom symbol: setupColor__8ModelObjFPC7NameObjl=0x802DFA20
 };
