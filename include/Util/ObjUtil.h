@@ -120,6 +120,7 @@ namespace MR
     void requestAppearPowerStar(const NameObj *, const TVec3f &);
     void requestAppearPowerStar(const NameObj *, s32, const TVec3f &);
     void requestAppearPowerStar(const NameObj *, const LiveActor *, f32);
+    void appearEventPowerStar(const char*, s32, const TVec3f *, bool, bool, s32);
 
     void requestAppearPowerStarCoin100();
     bool isEndPowerStarAppearDemo(const NameObj *);
