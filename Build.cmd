@@ -20,7 +20,7 @@ for /F "tokens=*" %%A in (cppfiles.txt) do %CXX% %CXX_FLAGS% build/%%~nA.o sourc
 
 rm -f *.d
 
-rm cppfile.txt
+rm cppfiles.txt
 
 make > lines.txt
 
