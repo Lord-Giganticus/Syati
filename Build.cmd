@@ -8,7 +8,7 @@ SET LD="%CD%\Kamek\Kamek.exe"
 
 SET LD_FLAGS=-externals=symbols/%1.txt -output-kamek=CustomCode_%1.bin
 
-if "%2"=="PT" mv source\ExtendedActorFactory.cpp %CD%
+if "%2"=="PT" mv source\ExtendedActorFactory.cpp "%CD%"
 
 PowerShell Get-ChildItem -Path .\source -Filter *.cpp -Recurse -File -Name > cppfiles.txt
 
