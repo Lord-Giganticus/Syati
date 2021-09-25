@@ -12,8 +12,6 @@ for /F "tokens=*" %%A in (cppfiles.txt) do %CXX% %CXX_FLAGS% build/%%~nA.o sourc
 
 rm -f *.d
 
-rm cppfile.txt
-
 make > lines.txt
 
 set /p OFILES=< lines.txt
