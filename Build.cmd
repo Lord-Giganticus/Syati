@@ -1,4 +1,4 @@
-IF [%1] == [] echo The first argument must be a galaxy region! && exit
+IF [%1] == [] echo The first argument must be a galaxy region! && pause && exit
 
 SET CXX="%CD%\CodeWarrior\mwcceppc.exe"
 
