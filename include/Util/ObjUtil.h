@@ -177,4 +177,7 @@ namespace MR
     bool tryFindLinkNamePos(const NameObj *, const char *, TVec3f *, TVec3f *);
     bool tryFindLinkNamePos(const NameObj *, const char *, MtxPtr);
     void appearEventPowerStar(const char*, s32, const TVec3f *, bool, bool, s32);
+    
+    void stopStageBGM(u32);
+    void stopSubBGM(u32);
 };
