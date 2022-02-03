@@ -11,10 +11,10 @@ extern "C" {
 /*
 * Debug API
 */
-//void OSPanic(const char *file, int line, const char *msg, ...);
+void OSPanic(const char *file, int line, const char *msg, ...);
 void OSReport(const char *msg, ...);
 void OSVReport(const char *msg, va_list list);
-//void OSFatal(u32 *fg, u32 *bg, const char *msg, ...);
+void OSFatal(u32 *fg, u32 *bg, const char *msg, ...);
 
 /*
 * Application info API
