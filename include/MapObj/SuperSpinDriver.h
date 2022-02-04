@@ -6,7 +6,6 @@
 #define SUPER_SPIN_DRIVER_YELLOW 0
 #define SUPER_SPIN_DRIVER_GREEN 1
 #define SUPER_SPIN_DRIVER_PINK 2
-#define SUPER_SPIN_DRIVER_PINK 3
 
 class SuperSpinDriver : public LiveActor
 {
