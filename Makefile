@@ -14,6 +14,7 @@ $(TARGET): $(OBJECTS)
 	$(LD) $^ $(LD_FLAGS)
 
 $(OBJECTS): $(CPPFILES)
+	mkdir build
 	$(CXX) $(CXX_FLAGS) $^
 	mv *.o build
 	rm *.d
