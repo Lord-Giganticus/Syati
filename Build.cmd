@@ -22,7 +22,7 @@ rm -f *.d
 
 rm cppfiles.txt
 
-make > lines.txt
+make -f old.mak > lines.txt
 
 set /p OFILES=< lines.txt
 
