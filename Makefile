@@ -23,3 +23,5 @@ $(PROGRAMS):
 
 clean:
 	rm $(TARGET) $(OBJECTS)
+
+check: $(PROGRAMS)
