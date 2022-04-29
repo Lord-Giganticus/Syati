@@ -10,12 +10,12 @@ PROGRAMS = $(CXX) $(LD)
 
 all: $(PROGRAMS) $(TARGET)
 
-$(TARGET): $(OBJECTS)
+$(TARGET):
 	mkdir -p Build
 	$(CXX) $(CXX_FLAGS) $(CPPFILES)
 	mv *.o Build
 	rm *.d
-	$(LD) $^ $(LD_FLAGS)
+	$(LD) $(OBJECTS) $(LD_FLAGS)
 
 # Yes, this is JUST IN CASE to make run this if CodeWarrior or Kamek are missing.
 $(PROGRAMS):
