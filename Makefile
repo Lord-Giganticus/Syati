@@ -8,7 +8,7 @@ LD := Kamek\Kamek.exe
 LD_FLAGS := -externals=symbols/$(REG).txt -output-kamek=$(TARGET)
 PROGRAMS = $(CXX) $(LD)
 
-all: $(PROGRAMS) $(TARGET)
+all: check $(TARGET)
 
 $(TARGET):
 	mkdir -p Build
@@ -25,3 +25,20 @@ clean:
 	rm $(TARGET) $(OBJECTS)
 
 check: $(PROGRAMS)
+
+USA:
+	$(MAKE) REG=$@
+
+PAL:
+	$(MAKE) REG=$@
+
+JAP:
+	$(MAKE) REG=$@
+
+KOR:
+	$(MAKE) REG=$@
+
+TWN:
+	$(MAKE) REG=$@
+
+ALL: USA PAL JAP KOR TWN
