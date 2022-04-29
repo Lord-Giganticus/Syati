@@ -14,7 +14,7 @@ for /F "tokens=*" %%A in (cppfiles.txt) do %CXX% %CXX_FLAGS% %%~nA.o %%A
 
 rm cppfiles.txt
 
-make > lines.txt
+make -f old.mak > lines.txt
 
 set /p OFILES=< lines.txt
 
